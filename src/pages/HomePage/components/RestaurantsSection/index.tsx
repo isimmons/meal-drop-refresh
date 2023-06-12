@@ -1,0 +1,1 @@
+export { RestaurantsSection } from './RestaurantsSection';

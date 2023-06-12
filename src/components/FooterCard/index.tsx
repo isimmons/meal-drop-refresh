@@ -1,0 +1,1 @@
+export { FooterCard } from './FooterCard';

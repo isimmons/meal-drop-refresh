@@ -1,0 +1,62 @@
+{
+  "name": "meal-drop-refresh",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@fisch0920/use-dark-mode": "^2.4.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-loading-skeleton": "^3.3.1",
+    "react-lottie-player": "^1.5.4",
+    "react-multi-carousel": "^2.8.4",
+    "react-redux": "^8.0.7",
+    "react-router-dom": "^6.12.1",
+    "react-transition-group": "^4.4.5",
+    "styled-components": "^5.3.10"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.20",
+    "@storybook/addon-interactions": "^7.0.20",
+    "@storybook/addon-links": "^7.0.20",
+    "@storybook/blocks": "^7.0.20",
+    "@storybook/react": "^7.0.20",
+    "@storybook/react-vite": "^7.0.20",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/node": "^20.3.0",
+    "@types/react": "^18.2.11",
+    "@types/react-dom": "^18.2.4",
+    "@types/react-transition-group": "^4.4.6",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "eslint-plugin-storybook": "^0.6.12",
+    "msw-storybook-addon": "^1.8.0",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.20",
+    "storybook-addon-designs": "^7.0.0-beta.2",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vite-plugin-svgr": "^3.2.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
+  }
+}

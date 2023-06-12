@@ -1,0 +1,1 @@
+export { AwardWinningSection } from './AwardWinningSection';
