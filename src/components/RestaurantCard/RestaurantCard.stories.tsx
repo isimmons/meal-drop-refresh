@@ -14,6 +14,7 @@ const meta = {
       url: "https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1126-3893&t=WB28EG6Y9TrKtViI-4",
     },
   },
+  tags: ["autodocs"],
 } satisfies Meta<typeof RestaurantCard>;
 
 type Story = StoryObj<typeof meta>;

@@ -14,6 +14,7 @@ const meta: Meta<typeof Badge> = {
       url: "https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1906-3469&t=xzhd644zrRNFAbUu-4",
     },
   },
+  tags: ["autodocs"],
 };
 
 export default meta;
