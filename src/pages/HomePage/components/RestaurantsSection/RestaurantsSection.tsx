@@ -29,13 +29,9 @@ const RightArrowFix = (arrowProps: any) => {
 
 type RestaurantsSectionProps = {
   title: string;
-  isLoading?: boolean;
 };
 
-export const RestaurantsSection = ({
-  title,
-  isLoading = false,
-}: RestaurantsSectionProps) => {
+export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   const navigate = useNavigate();
 
   const { restaurants = [], status } = useFetchRestaurants();
@@ -69,7 +65,7 @@ export const RestaurantsSection = ({
         removeArrowOnDeviceType={["tablet", "mobile"]}
         itemClass="carousel-item"
       >
-        {status === "loading" || isLoading
+        {status === "loading"
           ? Array.from(Array(3)).map((_, index) => (
               <RestaurantCardSkeleton key={index} />
             ))
