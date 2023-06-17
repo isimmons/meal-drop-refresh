@@ -27,7 +27,7 @@ type Props = {
 } & ComponentProps<typeof StyledButton>;
 
 export const IconButton = ({ small = false, name, ...props }: Props) => (
-  <StyledButton type="button" styled={{ small }} {...props}>
+  <StyledButton type="button" styleProps={{ small }} {...props}>
     <Icon name={name} size={small ? 15 : 24} color="#202020" />
   </StyledButton>
 );
