@@ -25,7 +25,7 @@ type Props = {
 export const Badge = ({ text, className }: Props) => {
   return (
     <Container className={className}>
-      <Body type="span" size="S">
+      <Body type="span" size="XS">
         {text}
       </Body>
     </Container>
