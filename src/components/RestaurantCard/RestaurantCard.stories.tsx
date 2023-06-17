@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { within, userEvent } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 import { RestaurantCard } from './RestaurantCard';
 
@@ -21,7 +23,14 @@ const meta = {
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    userEvent.click(canvas.getByTestId('restaurant-card'));
+    expect(args.onClick).toHaveBeenCalled();
+  },
+};
+
 export const New: Story = {
   args: {
     isNew: true,
@@ -30,6 +39,11 @@ export const New: Story = {
 export const Closed: Story = {
   args: {
     isClosed: true,
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    userEvent.click(canvas.getByTestId('restaurant-card'));
+    expect(args.onClick).not.toHaveBeenCalled();
   },
 };
 export const Loading: Story = {

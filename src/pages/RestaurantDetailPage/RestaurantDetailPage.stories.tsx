@@ -1,5 +1,7 @@
+import { expect } from '@storybook/jest';
 import type { Decorator, Meta, StoryObj } from '@storybook/react';
 import { rest } from 'msw';
+import { userEvent, within } from '@storybook/testing-library';
 
 import { RestaurantDetailPage } from './RestaurantDetailPage';
 
@@ -43,6 +45,16 @@ export const Success: Story = {
         return res(ctx.json(restaurants[0]));
       }),
     ],
+  },
+};
+
+export const WithModalOpen: Story = {
+  parameters: { ...Success.parameters },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const foodItem = await canvas.findByText(/cheeseburger/i);
+    await userEvent.click(foodItem);
+    await expect(canvas.getByTestId('modal')).toBeInTheDocument();
   },
 };
 
