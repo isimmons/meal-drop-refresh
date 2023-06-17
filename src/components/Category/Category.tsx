@@ -10,29 +10,29 @@ export type CategoryProps = {
   round?: boolean;
 };
 
-const Container = styled.figure<{ styled: { round: boolean } }>(
-  ({ styled, theme: { color, borderRadius } }) => css`
+const Container = styled.figure<{ styleProps: { round: boolean } }>(
+  ({ styleProps, theme: { color, borderRadius } }) => css`
     display: flex;
     cursor: pointer;
     position: relative;
-    flex-direction: ${styled.round ? 'column' : 'row'};
-    align-items: ${styled.round ? 'center' : 'start'};
+    flex-direction: ${styleProps.round ? 'column' : 'row'};
+    align-items: ${styleProps.round ? 'center' : 'start'};
     border-radius: ${borderRadius.s};
-    background: ${styled.round ? color.cardBackground : 'transparent'};
+    background: ${styleProps.round ? color.cardBackground : 'transparent'};
     height: 100%;
     width: 100%;
     min-width: 50px;
-    max-width: ${styled.round ? '200px' : 'auto'};
-    max-height: ${styled.round ? '200px' : '309px'};
+    max-width: ${styleProps.round ? '200px' : 'auto'};
+    max-height: ${styleProps.round ? '200px' : '309px'};
     margin: 0;
-    padding: ${styled.round ? '1.5rem 2rem' : '0'};
+    padding: ${styleProps.round ? '1.5rem 2rem' : '0'};
 
     &:hover {
       opacity: 0.9;
     }
 
     @media ${breakpoints.M} {
-      padding: ${styled.round ? '1.5rem 0' : '0'};
+      padding: ${styleProps.round ? '1.5rem 0' : '0'};
     }
   `
 );
@@ -108,7 +108,7 @@ const Squared = ({ title, photoUrl: url }: CategoryProps) => (
 
 export const Category = ({ photoUrl, title, round = false }: CategoryProps) => {
   return (
-    <Container styled={{ round }} data-testid={title}>
+    <Container styleProps={{ round }} data-testid={title}>
       {round ? (
         <Rounded photoUrl={photoUrl} title={title} />
       ) : (

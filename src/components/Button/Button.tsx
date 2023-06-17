@@ -8,31 +8,35 @@ const Spacer = styled.span`
 `;
 
 const StyledButton = styled.button<{
-  styled: {
+  styleProps: {
     clear: boolean;
     large: boolean;
     withIcon: boolean;
     round: boolean;
   };
 }>(
-  ({ styled, theme: { color, boxShadow, borderRadius } }) => css`
+  ({ styleProps, theme: { color, boxShadow, borderRadius } }) => css`
     outline: none;
     border: 0;
     font-family: 'Hind';
-    border-radius: ${styled.round ? borderRadius.xl : borderRadius.xs};
+    border-radius: ${styleProps.round ? borderRadius.xl : borderRadius.xs};
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: ${styled.withIcon ? '0.7rem' : styled.large ? '1.125rem 1rem' : '0.875rem 1rem'};
-    color: ${styled.clear ? color.primaryText : color.buttonText};
+    padding: ${styleProps.withIcon
+      ? '0.7rem'
+      : styleProps.large
+      ? '1.125rem 1rem'
+      : '0.875rem 1rem'};
+    color: ${styleProps.clear ? color.primaryText : color.buttonText};
 
     transition: box-shadow 150ms ease-in;
     z-index: 1;
-    background-color: ${styled.clear ? color.buttonClear : color.buttonPrimary};
+    background-color: ${styleProps.clear ? color.buttonClear : color.buttonPrimary};
 
     &:hover {
       cursor: pointer;
-      background-color: ${styled.clear ? color.buttonClearHover : color.buttonPrimaryHover};
+      background-color: ${styleProps.clear ? color.buttonClearHover : color.buttonPrimaryHover};
     }
 
     &:focus {
@@ -40,12 +44,16 @@ const StyledButton = styled.button<{
     }
 
     &:disabled {
-      background-color: ${styled.clear ? color.buttonClear : color.buttonPrimary};
+      background-color: ${styleProps.clear ? color.buttonClear : color.buttonPrimary};
       opacity: 0.4;
     }
 
     @media ${breakpoints.M} {
-      padding: ${styled.withIcon ? '1rem' : styled.large ? '1.125rem 1.5rem' : '0.875rem 1.5rem'};
+      padding: ${styleProps.withIcon
+        ? '1rem'
+        : styleProps.large
+        ? '1.125rem 1.5rem'
+        : '0.875rem 1.5rem'};
     }
   `
 );

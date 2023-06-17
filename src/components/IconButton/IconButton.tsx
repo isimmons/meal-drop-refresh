@@ -3,11 +3,11 @@ import styled, { css } from 'styled-components';
 
 import { Icon } from '~/components/Icon';
 
-const StyledButton = styled.button<{ styled: { small: boolean } }>(
-  ({ styled, theme: { borderRadius } }) => css`
+const StyledButton = styled.button<{ styleProps: { small: boolean } }>(
+  ({ styleProps, theme: { borderRadius } }) => css`
     border: 0;
-    width: ${styled.small ? '3rem' : '4rem'};
-    height: ${styled.small ? '3rem' : '4rem'};
+    width: ${styleProps.small ? '3rem' : '4rem'};
+    height: ${styleProps.small ? '3rem' : '4rem'};
     border-radius: ${borderRadius.round};
     cursor: pointer;
     display: flex;

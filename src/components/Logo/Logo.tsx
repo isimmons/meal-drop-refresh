@@ -29,9 +29,9 @@ const pathStyles = (color: string, delay: number) => css`
 `;
 
 const SvgContainer = styled.svg<{
-  styled: { large: boolean; logoOnly: boolean };
+  styleProps: { large: boolean; logoOnly: boolean };
 }>(
-  ({ styled, theme: { name } }) => css`
+  ({ styleProps, theme: { name } }) => css`
     .logo--ear-top-left {
       ${pathStyles(shineColors[name], 50)};
     }
@@ -50,10 +50,10 @@ const SvgContainer = styled.svg<{
     .logo--ear-top-right {
       ${pathStyles(shineColors[name], 300)};
     }
-    padding-right: ${styled.logoOnly ? '0' : '0.75rem'};
-    height: ${styled.large ? '75px' : '24px'};
+    padding-right: ${styleProps.logoOnly ? '0' : '0.75rem'};
+    height: ${styleProps.large ? '75px' : '24px'};
     @media ${breakpoints.S} {
-      height: ${styled.large ? '150px' : '24px'};
+      height: ${styleProps.large ? '150px' : '24px'};
     }
   `
 );
@@ -83,7 +83,7 @@ export const Logo = ({ large = false, logoOnly = false }: Props) => {
 
   return (
     <LogoContainer>
-      <SvgContainer styled={{ large, logoOnly }} viewBox="0 0 23 20" fill="none">
+      <SvgContainer styleProps={{ large, logoOnly }} viewBox="0 0 23 20" fill="none">
         <path
           className="logo--face-left"
           d="M11.74 19.1662L6.66566 14.0788L0.82428 11.0619L1.76834 4.49574L0.82428 0.029541L11.74 2.1887V19.1662Z"
