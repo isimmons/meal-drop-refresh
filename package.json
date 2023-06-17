@@ -9,8 +9,10 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "sb": "storybook dev -p 6006",
+    "sb:headless": "storybook dev -p 6006 --ci",
+    "sb:build": "storybook build",
+    "sb:test": "test-storybook --watch"
   },
   "dependencies": {
     "@fisch0920/use-dark-mode": "^2.4.0",
@@ -27,6 +29,7 @@
     "styled-components": "^5.3.10"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.0.21",
     "@storybook/addon-essentials": "^7.0.20",
     "@storybook/addon-interactions": "^7.0.20",
     "@storybook/addon-links": "^7.0.20",
@@ -34,6 +37,7 @@
     "@storybook/jest": "^0.1.0",
     "@storybook/react": "^7.0.20",
     "@storybook/react-vite": "^7.0.20",
+    "@storybook/test-runner": "^0.10.0",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -46,6 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.0.0",
     "@vitejs/plugin-react": "^4.0.0",
+    "axe-playwright": "^1.2.3",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
