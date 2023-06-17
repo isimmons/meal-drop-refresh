@@ -109,7 +109,7 @@ export const Button = ({
   const { color } = theme;
 
   return (
-    <StyledButton type="button" styled={{ large, clear, round, withIcon: !!icon }} {...props}>
+    <StyledButton type="button" styleProps={{ large, clear, round, withIcon: !!icon }} {...props}>
       {icon && (
         <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />
       )}
