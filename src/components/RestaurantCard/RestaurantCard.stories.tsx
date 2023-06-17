@@ -1,20 +1,22 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { restaurants } from "~/stub/restaurants";
-import { RestaurantCard } from "./RestaurantCard";
+import type { Meta, StoryObj } from '@storybook/react';
+
+import { RestaurantCard } from './RestaurantCard';
+
+import { restaurants } from '~/stub/restaurants';
 
 const meta = {
-  title: "Components/RestaurantCard",
+  title: 'Components/RestaurantCard',
   component: RestaurantCard,
   args: {
     ...restaurants[0],
   },
   parameters: {
     design: {
-      type: "figma",
-      url: "https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1126-3893&t=WB28EG6Y9TrKtViI-4",
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1126-3893&t=WB28EG6Y9TrKtViI-4',
     },
   },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } satisfies Meta<typeof RestaurantCard>;
 
 type Story = StoryObj<typeof meta>;

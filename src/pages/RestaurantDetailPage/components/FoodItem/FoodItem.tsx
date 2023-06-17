@@ -1,9 +1,9 @@
-import { memo } from "react";
-import styled, { css } from "styled-components";
+import { memo } from 'react';
+import styled, { css } from 'styled-components';
 
-import { toEuro } from "~/helpers";
-import { Body } from "~/components/typography/Body";
-import { Heading } from "~/components/typography/Heading";
+import { toEuro } from '~/helpers';
+import { Body } from '~/components/typography/Body';
+import { Heading } from '~/components/typography/Heading';
 
 const Container = styled.div(
   ({ theme: { boxShadow, color, borderRadius } }) => css`
@@ -58,20 +58,18 @@ type Props = {
   onClick: () => void;
 };
 
-export const FoodItem = memo(
-  ({ quantity = 0, name, price, description, onClick }: Props) => (
-    <Container onClick={onClick}>
-      <div>
-        {quantity > 0 && (
-          <Quantity aria-label="food quantity" type="span" fontWeight="medium">
-            {quantity}
-          </Quantity>
-        )}
-        <Heading level={4}>{name}</Heading>
-        <Description>{description}</Description>
-        <Price>{toEuro(price)}</Price>
-      </div>
-    </Container>
-  )
-);
-FoodItem.displayName = "FoodItem";
+export const FoodItem = memo(({ quantity = 0, name, price, description, onClick }: Props) => (
+  <Container onClick={onClick}>
+    <div>
+      {quantity > 0 && (
+        <Quantity aria-label="food quantity" type="span" fontWeight="medium">
+          {quantity}
+        </Quantity>
+      )}
+      <Heading level={4}>{name}</Heading>
+      <Description>{description}</Description>
+      <Price>{toEuro(price)}</Price>
+    </div>
+  </Container>
+));
+FoodItem.displayName = 'FoodItem';

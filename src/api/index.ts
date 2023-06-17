@@ -1,6 +1,6 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosResponse } from 'axios';
 
-import { Restaurant } from "~/@types";
+import { Restaurant } from '~/@types';
 
 interface BaseApi {
   getRestaurants: () => Promise<Restaurant[]>;
@@ -8,12 +8,11 @@ interface BaseApi {
   getRestaurantsByCategory: (category: string) => Promise<Restaurant[]>;
 }
 
-export const BASE_URL =
-  "https://mealdrop.netlify.app/.netlify/functions/restaurants";
+export const BASE_URL = 'https://mealdrop.netlify.app/.netlify/functions/restaurants';
 
-const env = import.meta.env;
+const env = import.meta.env; // eslint-disable-line
 
-const isMockedEnvironment = !!env.STORYBOOK || env.NODE_ENV === "test";
+const isMockedEnvironment = !!env.STORYBOOK || env.NODE_ENV === 'test';
 
 const apiCache = new Map();
 
@@ -40,9 +39,7 @@ class RestaurantsApi implements BaseApi {
   }
 
   async getRestaurantById(id: string) {
-    const { data: restaurant, status } = await apiGet<Restaurant>(
-      `${BASE_URL}?id=${id}`
-    );
+    const { data: restaurant, status } = await apiGet<Restaurant>(`${BASE_URL}?id=${id}`);
 
     if (status === 404) {
       return Promise.reject({ response: { status: 404 } });
@@ -52,9 +49,7 @@ class RestaurantsApi implements BaseApi {
   }
 
   async getRestaurantsByCategory(category: string) {
-    const { data: restaurants } = await apiGet<Restaurant[]>(
-      `${BASE_URL}?category=${category}`
-    );
+    const { data: restaurants } = await apiGet<Restaurant[]>(`${BASE_URL}?category=${category}`);
 
     return restaurants;
   }

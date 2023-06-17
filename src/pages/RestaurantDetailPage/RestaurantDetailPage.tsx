@@ -1,26 +1,21 @@
-import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import styled, { css } from "styled-components";
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
-import { PageTemplate } from "~/templates/PageTemplate";
-import { useFetchRestaurant } from "~/api/hooks";
-import { useAppDispatch, useAppSelector } from "~/app-state";
-import {
-  CartItem,
-  clearItemAction,
-  saveItemAction,
-  selectCartItems,
-} from "~/app-state/cart";
-import { TopBanner } from "~/components/TopBanner";
-import { Heading, Body } from "~/components/typography";
-import { Badge } from "~/components/Badge";
-import { Review } from "~/components/Review";
-import { AnimatedIllustration } from "~/components/AnimatedIllustration";
-import { ErrorBlock } from "~/components/ErrorBlock";
-import { Spinner } from "~/components/Spinner";
+import { FoodItemModal } from './components/FoodItemModal';
+import { FoodSection } from './components/FoodSection';
 
-import { FoodItemModal } from "./components/FoodItemModal";
-import { FoodSection } from "./components/FoodSection";
+import { PageTemplate } from '~/templates/PageTemplate';
+import { useFetchRestaurant } from '~/api/hooks';
+import { useAppDispatch, useAppSelector } from '~/app-state';
+import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '~/app-state/cart';
+import { TopBanner } from '~/components/TopBanner';
+import { Heading, Body } from '~/components/typography';
+import { Badge } from '~/components/Badge';
+import { Review } from '~/components/Review';
+import { AnimatedIllustration } from '~/components/AnimatedIllustration';
+import { ErrorBlock } from '~/components/ErrorBlock';
+import { Spinner } from '~/components/Spinner';
 
 const DetailSection = styled.div(
   ({ theme: { color, spacing } }) => css`
@@ -49,7 +44,7 @@ const StyledBadge = styled(Badge)(
 );
 
 export const RestaurantDetailPage = () => {
-  const { id = "" } = useParams<"id">();
+  const { id = '' } = useParams<'id'>();
 
   const navigate = useNavigate();
   const { restaurant, status, retryRequest } = useFetchRestaurant(id);
@@ -62,7 +57,7 @@ export const RestaurantDetailPage = () => {
   const addItemToCart = (item: CartItem) => dispatch(saveItemAction(item));
   const clearItemFromCart = (item: CartItem) => dispatch(clearItemAction(item));
 
-  if (status === "500") {
+  if (status === '500') {
     return (
       <PageTemplate type="sticky-header">
         <ErrorBlock
@@ -76,21 +71,21 @@ export const RestaurantDetailPage = () => {
     );
   }
 
-  if (status === "404") {
+  if (status === '404') {
     return (
       <PageTemplate type="sticky-header">
         <ErrorBlock
           title="We can't find this page"
           body="This page doesn’t exist, keep looking."
           image={<AnimatedIllustration animation="Error" />}
-          onButtonClick={() => navigate("/")}
+          onButtonClick={() => navigate('/')}
           buttonText="Home"
         />
       </PageTemplate>
     );
   }
 
-  if (status === "loading") {
+  if (status === 'loading') {
     return (
       <PageTemplate type="sticky-header">
         <Spinner />

@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from 'react';
 
-import type { Restaurant } from "~/@types";
+import { api } from './index';
 
-import { api } from "./index";
+import type { Restaurant } from '~/@types';
 
 export const useFetchRestaurants = () => {
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState('idle');
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [retry, setRetry] = useState(false);
 
@@ -14,12 +14,12 @@ export const useFetchRestaurants = () => {
   }, [setRetry]);
 
   useEffect(() => {
-    setStatus("loading");
+    setStatus('loading');
 
     api
       .getRestaurants()
       .then((res) => {
-        setStatus("success");
+        setStatus('success');
         setRestaurants(res);
       })
       .catch((error) => {
@@ -36,7 +36,7 @@ export const useFetchRestaurants = () => {
 };
 
 export const useFetchRestaurantsByCategory = (categoryId?: string) => {
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState('idle');
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [retry, setRetry] = useState(false);
 
@@ -46,12 +46,12 @@ export const useFetchRestaurantsByCategory = (categoryId?: string) => {
 
   useEffect(() => {
     if (categoryId) {
-      setStatus("loading");
+      setStatus('loading');
 
       api
         .getRestaurantsByCategory(categoryId)
         .then((res) => {
-          setStatus("success");
+          setStatus('success');
           setRestaurants(res);
         })
         .catch((error) => {
@@ -69,7 +69,7 @@ export const useFetchRestaurantsByCategory = (categoryId?: string) => {
 };
 
 export const useFetchRestaurant = (id: string) => {
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState('idle');
   const [restaurant, setRestaurant] = useState<Restaurant>();
   const [retry, setRetry] = useState(false);
 
@@ -78,12 +78,12 @@ export const useFetchRestaurant = (id: string) => {
   }, [setRetry]);
 
   useEffect(() => {
-    setStatus("loading");
+    setStatus('loading');
 
     api
       .getRestaurantById(id)
       .then((res) => {
-        setStatus("success");
+        setStatus('success');
         setRestaurant(res);
       })
       .catch((error) => {

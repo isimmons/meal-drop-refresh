@@ -15,19 +15,12 @@ export const AnimatedIllustration = ({ animation }: Props) => {
 
   useEffect(() => {
     // Lazy load animations for better performance
-    import(`../../assets/animations/${LottieAnimations[animation]}.json`).then(
-      setAnimationData
-    );
+    import(`../../assets/animations/${LottieAnimations[animation]}.json`).then(setAnimationData);
   }, [animation]);
 
   return (
     <span className="chromatic-ignore">
-      <Lottie
-        style={{ minHeight: 450, maxWidth: 450 }}
-        play
-        loop
-        animationData={animationData}
-      />
+      <Lottie style={{ minHeight: 450, maxWidth: 450 }} play loop animationData={animationData} />
     </span>
   );
 };

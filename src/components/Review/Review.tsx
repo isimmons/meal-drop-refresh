@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { Body } from "../typography";
+import { Body } from '../typography';
 
 type Props = {
   rating?: number;
@@ -14,17 +14,17 @@ const Container = styled.div`
 
 const getReview = (rating?: number) => {
   if (!rating) {
-    return "No reviews yet";
+    return 'No reviews yet';
   }
 
-  let reviewText = "Very poor";
+  let reviewText = 'Very poor';
 
   if (rating >= 2 && rating < 4) {
-    reviewText = "Adequate";
+    reviewText = 'Adequate';
   } else if (rating >= 4 && rating < 5) {
-    reviewText = "Very good";
+    reviewText = 'Very good';
   } else if (rating >= 5) {
-    reviewText = "Excellent";
+    reviewText = 'Excellent';
   }
 
   return `★ ${rating.toFixed(1)} ${reviewText}`;

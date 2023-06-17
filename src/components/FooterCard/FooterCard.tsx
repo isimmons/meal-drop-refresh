@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import { ReactNode } from 'react';
 
 import { Body } from '../typography/Body';
 import { Heading } from '../typography/Heading';
-import { ReactNode } from 'react';
 
 const FooterCardContainer = styled.div(
   ({

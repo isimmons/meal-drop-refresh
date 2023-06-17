@@ -10,11 +10,9 @@ interface BaseApi {
   getRestaurantsByCategory: (category: string) => Promise<Restaurant[]>;
 }
 
-export const BASE_URL =
-  'https://mealdrop.netlify.app/.netlify/functions/restaurants';
+export const BASE_URL = 'https://mealdrop.netlify.app/.netlify/functions/restaurants';
 
-const isMockedEnvironment =
-  !!process.env.STORYBOOK || process.env.NODE_ENV === 'test';
+const isMockedEnvironment = !!process.env.STORYBOOK || process.env.NODE_ENV === 'test';
 
 const apiCache = new Map();
 
@@ -41,9 +39,7 @@ class RestaurantsApi implements BaseApi {
   }
 
   async getRestaurantById(id: string) {
-    const { data: restaurant, status } = await apiGet<Restaurant>(
-      `${BASE_URL}?id=${id}`
-    );
+    const { data: restaurant, status } = await apiGet<Restaurant>(`${BASE_URL}?id=${id}`);
 
     if (status === 404) {
       return Promise.reject({ response: { status: 404 } });
@@ -53,9 +49,7 @@ class RestaurantsApi implements BaseApi {
   }
 
   async getRestaurantsByCategory(category: string) {
-    const { data: restaurants } = await apiGet<Restaurant[]>(
-      `${BASE_URL}?category=${category}`
-    );
+    const { data: restaurants } = await apiGet<Restaurant[]>(`${BASE_URL}?category=${category}`);
 
     return restaurants;
   }
@@ -67,21 +61,15 @@ class MockedRestaurantsApi implements BaseApi {
   }
 
   async getRestaurantById(id: string) {
-    return restaurantsMock.find(
-      (restaurant) => restaurant.id === id
-    ) as Restaurant;
+    return restaurantsMock.find((restaurant) => restaurant.id === id) as Restaurant;
   }
 
   async getRestaurantsByCategory(category: string) {
     return restaurantsMock
-      .filter((restaurant) =>
-        restaurant.categories?.includes(category.toLowerCase())
-      )
+      .filter((restaurant) => restaurant.categories?.includes(category.toLowerCase()))
       .sort((restaurant) => (restaurant.isClosed ? 1 : -1))
       .sort((restaurant) => (restaurant.isNew ? -1 : 1));
   }
 }
 
-export const api: BaseApi = isMockedEnvironment
-  ? new MockedRestaurantsApi()
-  : new RestaurantsApi();
+export const api: BaseApi = isMockedEnvironment ? new MockedRestaurantsApi() : new RestaurantsApi();

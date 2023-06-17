@@ -1,8 +1,7 @@
-import styled, { css, useTheme } from "styled-components";
+import styled, { css, useTheme } from 'styled-components';
 
-import { breakpoints } from "~/styles/breakpoints";
-import { Icon } from "~/components/Icon";
-// import { DefaultTheme } from "styled-components/dist/types";
+import { breakpoints } from '~/styles/breakpoints';
+import { Icon } from '~/components/Icon';
 
 const Spacer = styled.span`
   padding-left: 1rem;
@@ -19,16 +18,12 @@ const StyledButton = styled.button<{
   ({ styled, theme: { color, boxShadow, borderRadius } }) => css`
     outline: none;
     border: 0;
-    font-family: "Hind";
+    font-family: 'Hind';
     border-radius: ${styled.round ? borderRadius.xl : borderRadius.xs};
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: ${styled.withIcon
-      ? "0.7rem"
-      : styled.large
-      ? "1.125rem 1rem"
-      : "0.875rem 1rem"};
+    padding: ${styled.withIcon ? '0.7rem' : styled.large ? '1.125rem 1rem' : '0.875rem 1rem'};
     color: ${styled.clear ? color.primaryText : color.buttonText};
 
     transition: box-shadow 150ms ease-in;
@@ -37,9 +32,7 @@ const StyledButton = styled.button<{
 
     &:hover {
       cursor: pointer;
-      background-color: ${styled.clear
-        ? color.buttonClearHover
-        : color.buttonPrimaryHover};
+      background-color: ${styled.clear ? color.buttonClearHover : color.buttonPrimaryHover};
     }
 
     &:focus {
@@ -47,18 +40,12 @@ const StyledButton = styled.button<{
     }
 
     &:disabled {
-      background-color: ${styled.clear
-        ? color.buttonClear
-        : color.buttonPrimary};
+      background-color: ${styled.clear ? color.buttonClear : color.buttonPrimary};
       opacity: 0.4;
     }
 
     @media ${breakpoints.M} {
-      padding: ${styled.withIcon
-        ? "1rem"
-        : styled.large
-        ? "1.125rem 1.5rem"
-        : "0.875rem 1.5rem"};
+      padding: ${styled.withIcon ? '1rem' : styled.large ? '1.125rem 1.5rem' : '0.875rem 1.5rem'};
     }
   `
 );
@@ -110,21 +97,13 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const theme = useTheme();
-  if (!theme) throw Error("theme not defined...");
-  const color = theme.color;
+  if (!theme) throw Error('theme not defined...');
+  const { color } = theme;
 
   return (
-    <StyledButton
-      type="button"
-      styled={{ large, clear, round, withIcon: !!icon }}
-      {...props}
-    >
+    <StyledButton type="button" styled={{ large, clear, round, withIcon: !!icon }} {...props}>
       {icon && (
-        <Icon
-          color={clear ? color.primaryText : color.buttonText}
-          size={iconSize}
-          name={icon}
-        />
+        <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />
       )}
       {icon && children && <Spacer />}
       {children}

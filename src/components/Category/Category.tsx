@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { breakpoints } from "../../styles/breakpoints";
-import { Body } from "../typography";
+import { breakpoints } from '../../styles/breakpoints';
+import { Body } from '../typography';
 
 export type CategoryProps = {
   id?: string;
@@ -15,24 +15,24 @@ const Container = styled.figure<{ styled: { round: boolean } }>(
     display: flex;
     cursor: pointer;
     position: relative;
-    flex-direction: ${styled.round ? "column" : "row"};
-    align-items: ${styled.round ? "center" : "start"};
+    flex-direction: ${styled.round ? 'column' : 'row'};
+    align-items: ${styled.round ? 'center' : 'start'};
     border-radius: ${borderRadius.s};
-    background: ${styled.round ? color.cardBackground : "transparent"};
+    background: ${styled.round ? color.cardBackground : 'transparent'};
     height: 100%;
     width: 100%;
     min-width: 50px;
-    max-width: ${styled.round ? "200px" : "auto"};
-    max-height: ${styled.round ? "200px" : "309px"};
+    max-width: ${styled.round ? '200px' : 'auto'};
+    max-height: ${styled.round ? '200px' : '309px'};
     margin: 0;
-    padding: ${styled.round ? "1.5rem 2rem" : "0"};
+    padding: ${styled.round ? '1.5rem 2rem' : '0'};
 
     &:hover {
       opacity: 0.9;
     }
 
     @media ${breakpoints.M} {
-      padding: ${styled.round ? "1.5rem 0" : "0"};
+      padding: ${styled.round ? '1.5rem 0' : '0'};
     }
   `
 );

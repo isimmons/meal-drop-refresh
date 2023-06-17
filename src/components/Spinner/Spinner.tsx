@@ -1,4 +1,4 @@
-import styled, { useTheme } from "styled-components";
+import styled, { useTheme } from 'styled-components';
 
 const StyledSVG = styled.svg`
   width: 100px;
@@ -11,8 +11,8 @@ const StyledSVG = styled.svg`
 
 export const Spinner = () => {
   const theme = useTheme();
-  if (!theme) throw Error("theme not defined...");
-  const color = theme.color;
+  if (!theme) throw Error('theme not defined...');
+  const { color } = theme;
 
   return (
     <StyledSVG
@@ -23,12 +23,7 @@ export const Spinner = () => {
       <text transform="translate(-50 0)" fill={color.primaryText}>
         Looking for some food...
       </text>
-      <animate
-        attributeName="opacity"
-        dur="1s"
-        keyTimes="0;0.4;1"
-        values="0;0;1"
-      />
+      <animate attributeName="opacity" dur="1s" keyTimes="0;0.4;1" values="0;0;1" />
       <g>
         <circle cx="60" cy="50" r="4" fill="#22aca7">
           <animate
@@ -86,11 +81,7 @@ export const Spinner = () => {
         </circle>
       </g>
       <g transform="translate(-15 0)">
-        <path
-          d="M50 50L20 50A30 30 0 0 0 80 50Z"
-          fill="#61d8de"
-          transform="rotate(90 50 50)"
-        />
+        <path d="M50 50L20 50A30 30 0 0 0 80 50Z" fill="#61d8de" transform="rotate(90 50 50)" />
         <path d="M50 50L20 50A30 30 0 0 0 80 50Z" fill="#61d8de">
           <animateTransform
             attributeName="transform"

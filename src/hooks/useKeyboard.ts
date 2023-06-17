@@ -1,14 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export const useKey = (
-  key: string,
-  keyDownCb = () => {
-    return;
-  },
-  keyUpCb = () => {
-    return;
-  }
-): boolean => {
+export const useKey = (key: string, keyDownCb = () => {}, keyUpCb = () => {}): boolean => {
   const [pressed, setPressed] = useState<boolean>(false);
   const match = useCallback(
     (event: KeyboardEvent) => key.toLowerCase() === event.key.toLowerCase(),

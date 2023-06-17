@@ -11,11 +11,7 @@ type Props = {
   className?: string;
 };
 
-export const RestaurantCard = ({
-  isClosed = false,
-  isNew = false,
-  isLoading = false,
-}: Props) => {
+export const RestaurantCard = ({ isClosed = false, isNew = false, isLoading = false }: Props) => {
   if (isLoading) {
     return <div>Loading...</div>;
   }

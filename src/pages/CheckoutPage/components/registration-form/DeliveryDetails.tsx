@@ -1,6 +1,6 @@
-import { saveOrderAction } from '~/app-state/order';
 import { useNavigate } from 'react-router-dom';
 
+import { saveOrderAction } from '~/app-state/order';
 import { useAppDispatch, useAppSelector } from '~/app-state';
 import { clearCartAction, selectCartItems } from '~/app-state/cart';
 import { Button } from '~/components/Button';
@@ -47,13 +47,7 @@ export const DeliveryDetails = ({ setForm, formData, navigation }: Props) => {
         value={postcode}
         onChange={setForm}
       />
-      <Input
-        label="City"
-        placeholder="Amsterdam"
-        name="city"
-        value={city}
-        onChange={setForm}
-      />
+      <Input label="City" placeholder="Amsterdam" name="city" value={city} onChange={setForm} />
       <div
         style={{
           display: 'flex',

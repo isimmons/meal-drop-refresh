@@ -1,6 +1,7 @@
-import { createSlice, CaseReducer, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, CaseReducer, PayloadAction } from '@reduxjs/toolkit';
 
-import { ShopItem } from "~/@types";
+import { ShopItem } from '~/@types';
+
 export interface CartItem extends ShopItem {
   quantity: number;
 }
@@ -19,20 +20,12 @@ const clearCart: CaseReducer<CartState> = (state) => {
   state.items = [];
 };
 
-const clearItem: CaseReducer<CartState, PayloadAction<CartItem>> = (
-  state,
-  action
-) => {
+const clearItem: CaseReducer<CartState, PayloadAction<CartItem>> = (state, action) => {
   state.items = state.items.filter((item) => item.id !== action.payload.id);
 };
 
-const removeItem: CaseReducer<CartState, PayloadAction<CartItem>> = (
-  state,
-  action
-) => {
-  const existingCartItem = state.items.find(
-    (item) => item.id === action.payload.id
-  );
+const removeItem: CaseReducer<CartState, PayloadAction<CartItem>> = (state, action) => {
+  const existingCartItem = state.items.find((item) => item.id === action.payload.id);
 
   if (!existingCartItem) return;
 
@@ -43,13 +36,8 @@ const removeItem: CaseReducer<CartState, PayloadAction<CartItem>> = (
   }
 };
 
-const saveItem: CaseReducer<CartState, PayloadAction<CartItem>> = (
-  state,
-  action
-) => {
-  const existingCartItem = state.items.find(
-    (item) => item.id === action.payload.id
-  ) as CartItem;
+const saveItem: CaseReducer<CartState, PayloadAction<CartItem>> = (state, action) => {
+  const existingCartItem = state.items.find((item) => item.id === action.payload.id) as CartItem;
 
   if (existingCartItem) {
     existingCartItem.quantity = action.payload.quantity;
@@ -64,7 +52,7 @@ const initialState: CartState = {
 };
 
 const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState,
   reducers: {
     toggleVisibilityAction: toggleVisibility,

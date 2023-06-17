@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { Body } from "../typography";
+import { Body } from '../typography';
 
 const Container = styled.div(
   ({ theme: { color, borderRadius } }) => css`

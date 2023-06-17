@@ -31,6 +31,12 @@ module.exports = {
     'prettier/prettier': 'warn',
     'import/order': ['warn', { 'newlines-between': 'always' }],
     '@typescript-eslint/no-use-before-define': 'off',
+    'react/function-component-definition': [
+      'warn',
+      {
+        namedComponents: 'arrow-function',
+      },
+    ],
     'react-refresh/only-export-components': 'warn',
     'react/jsx-uses-react': 'off',
     'react/prop-types': 'off',

@@ -38,4 +38,4 @@ export const cartItems = [
     price: 1.5,
     quantity: 1,
   },
-]
+];

@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import styled from 'styled-components';
 
-import { breakpoints } from '~/styles/breakpoints';
 import { FoodItem } from '../FoodItem/FoodItem';
-import { Heading } from '~/components/typography';
 
+import { breakpoints } from '~/styles/breakpoints';
+import { Heading } from '~/components/typography';
 import type { CartItem } from '~/app-state/cart';
 import type { FoodMenuItem } from '~/@types';
 
@@ -33,27 +33,25 @@ const StyledContainer = styled.div`
   }
 `;
 
-export const FoodSection = memo(
-  ({ title, cartItems, items, onItemClick }: Props) => (
-    <div>
-      <StyledHeading level={3}>{title}</StyledHeading>
-      <StyledContainer>
-        {items.map((item: FoodMenuItem) => {
-          const cartItem = cartItems.find((c) => c.id === item.id);
-          const quantity = cartItem?.quantity || 0;
-          return (
-            <FoodItem
-              key={item.name}
-              name={item.name}
-              price={item.price}
-              description={item.description}
-              quantity={quantity}
-              onClick={() => onItemClick(item as CartItem)}
-            />
-          );
-        })}
-      </StyledContainer>
-    </div>
-  )
-);
+export const FoodSection = memo(({ title, cartItems, items, onItemClick }: Props) => (
+  <div>
+    <StyledHeading level={3}>{title}</StyledHeading>
+    <StyledContainer>
+      {items.map((item: FoodMenuItem) => {
+        const cartItem = cartItems.find((c) => c.id === item.id);
+        const quantity = cartItem?.quantity || 0;
+        return (
+          <FoodItem
+            key={item.name}
+            name={item.name}
+            price={item.price}
+            description={item.description}
+            quantity={quantity}
+            onClick={() => onItemClick(item as CartItem)}
+          />
+        );
+      })}
+    </StyledContainer>
+  </div>
+));
 FoodSection.displayName = 'FoodSection';

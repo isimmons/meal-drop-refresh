@@ -1,32 +1,16 @@
-import styled, { css, useTheme, keyframes } from "styled-components";
+import styled, { css, useTheme, keyframes } from 'styled-components';
 
-import { breakpoints } from "~/styles/breakpoints";
-import { Heading } from "~/components/typography";
+import { breakpoints } from '~/styles/breakpoints';
+import { Heading } from '~/components/typography';
 
 const colors = {
-  light: [
-    "#61D8DE",
-    "#4CC8C0",
-    "#36C1BF",
-    "#36C1BF",
-    "#22ACA7",
-    "#22ACA7",
-    "#B1DCE3",
-  ],
-  dark: [
-    "#E4F7BB",
-    "#D2E29A",
-    "#DAEAAE",
-    "#DAEAAE",
-    "#C6D88B",
-    "#C6D88B",
-    "#FFFFFF",
-  ],
+  light: ['#61D8DE', '#4CC8C0', '#36C1BF', '#36C1BF', '#22ACA7', '#22ACA7', '#B1DCE3'],
+  dark: ['#E4F7BB', '#D2E29A', '#DAEAAE', '#DAEAAE', '#C6D88B', '#C6D88B', '#FFFFFF'],
 };
 
 const shineColors = {
-  light: "#9FF4F1",
-  dark: "#EFFFBB",
+  light: '#9FF4F1',
+  dark: '#EFFFBB',
 };
 
 const shine = (color: string) => keyframes`
@@ -66,10 +50,10 @@ const SvgContainer = styled.svg<{
     .logo--ear-top-right {
       ${pathStyles(shineColors[name], 300)};
     }
-    padding-right: ${styled.logoOnly ? "0" : "0.75rem"};
-    height: ${styled.large ? "75px" : "24px"};
+    padding-right: ${styled.logoOnly ? '0' : '0.75rem'};
+    height: ${styled.large ? '75px' : '24px'};
     @media ${breakpoints.S} {
-      height: ${styled.large ? "150px" : "24px"};
+      height: ${styled.large ? '150px' : '24px'};
     }
   `
 );
@@ -93,17 +77,13 @@ type Props = {
 
 export const Logo = ({ large = false, logoOnly = false }: Props) => {
   const theme = useTheme();
-  if (!theme) throw Error("theme not defined...");
+  if (!theme) throw Error('theme not defined...');
   const themeName = theme.name;
   const fillColors = colors[themeName];
 
   return (
     <LogoContainer>
-      <SvgContainer
-        styled={{ large, logoOnly }}
-        viewBox="0 0 23 20"
-        fill="none"
-      >
+      <SvgContainer styled={{ large, logoOnly }} viewBox="0 0 23 20" fill="none">
         <path
           className="logo--face-left"
           d="M11.74 19.1662L6.66566 14.0788L0.82428 11.0619L1.76834 4.49574L0.82428 0.029541L11.74 2.1887V19.1662Z"

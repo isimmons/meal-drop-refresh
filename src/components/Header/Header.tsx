@@ -1,8 +1,8 @@
-import styled, { css } from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
-import useDarkMode from "@fisch0920/use-dark-mode";
+import styled, { css } from 'styled-components';
+import { Link, useNavigate } from 'react-router-dom';
+import useDarkMode from '@fisch0920/use-dark-mode';
 
-import { useAppDispatch, useAppSelector } from "~/app-state";
+import { useAppDispatch, useAppSelector } from '~/app-state';
 import {
   CartItem,
   saveItemAction,
@@ -10,13 +10,13 @@ import {
   selectCartTotal,
   selectCartVisibility,
   toggleVisibilityAction,
-} from "~/app-state/cart";
-import { breakpoints } from "~/styles/breakpoints";
-import { ShoppingCartMenu } from "~/components/ShoppingCartMenu";
-import { Button } from "~/components/Button";
-import { toEuro } from "~/helpers";
-import { Body } from "~/components/typography/Body";
-import { Logo } from "~/components/Logo";
+} from '~/app-state/cart';
+import { breakpoints } from '~/styles/breakpoints';
+import { ShoppingCartMenu } from '~/components/ShoppingCartMenu';
+import { Button } from '~/components/Button';
+import { toEuro } from '~/helpers';
+import { Body } from '~/components/typography/Body';
+import { Logo } from '~/components/Logo';
 
 export const HeaderContainer = styled.div<{ styled: { sticky: boolean } }>(
   ({ styled, theme: { color } }) => css`
@@ -37,7 +37,7 @@ export const HeaderContainer = styled.div<{ styled: { sticky: boolean } }>(
     }
 
     @media ${breakpoints.M} {
-      position: ${styled.sticky ? "sticky" : "relative"};
+      position: ${styled.sticky ? 'sticky' : 'relative'};
       height: 72px;
     }
   `
@@ -105,8 +105,8 @@ const ThemeToggle = () => {
     <Button
       round
       clear
-      aria-label={`turn on ${darkMode.value ? "light" : "dark"} mode`}
-      icon={darkMode.value ? "moon" : "sun"}
+      aria-label={`turn on ${darkMode.value ? 'light' : 'dark'} mode`}
+      icon={darkMode.value ? 'moon' : 'sun'}
       onClick={darkMode.toggle}
     />
   );
@@ -129,13 +129,9 @@ export const HeaderComponent = ({
   sticky = false,
   totalPrice = 0,
   cartItems = [],
-  toggleCartVisibility = () => {
-    return;
-  },
+  toggleCartVisibility = () => {},
   goToCheckout,
-  saveItem = () => {
-    return;
-  },
+  saveItem = () => {},
 }: Props) => (
   <HeaderContainer data-testid="header" styled={{ sticky }}>
     <LogoContainer to="/" aria-label="go to home page">
@@ -153,11 +149,7 @@ export const HeaderComponent = ({
               <Button clear>All restaurants</Button>
             </Link>
           </span>
-          <Button
-            aria-label="food cart"
-            icon="cart"
-            onClick={toggleCartVisibility}
-          >
+          <Button aria-label="food cart" icon="cart" onClick={toggleCartVisibility}>
             {totalPrice > 0 && (
               <>
                 <CartText type="span">Order</CartText>
@@ -190,7 +182,7 @@ export const Header = ({ sticky }: { sticky?: boolean }) => {
 
   const goToCheckout = () => {
     toggleCartVisibility();
-    navigate("/checkout");
+    navigate('/checkout');
   };
 
   return (

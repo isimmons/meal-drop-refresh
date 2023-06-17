@@ -1,12 +1,12 @@
 import { useRef, type ReactNode } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
+import { ModalContent, TopBar, Backdrop } from './Modal.styles';
+
 import { Portal } from '~/components/Portal';
 import { useKey } from '~/hooks/useKeyboard';
 import { Button } from '~/components/Button';
 import { useLockBodyScroll } from '~/hooks/useBodyScrollLock';
-
-import { ModalContent, TopBar, Backdrop } from './Modal.styles';
 
 type Props = {
   isOpen: boolean;
@@ -52,11 +52,7 @@ export const Modal = ({ children, isOpen, onClose }: Props) => {
         unmountOnExit
         nodeRef={backdropRef}
       >
-        <Backdrop
-          data-testid="modal-backdrop"
-          ref={backdropRef}
-          onClick={onClose}
-        />
+        <Backdrop data-testid="modal-backdrop" ref={backdropRef} onClick={onClose} />
       </CSSTransition>
     </Portal>
   );

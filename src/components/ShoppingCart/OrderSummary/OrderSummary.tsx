@@ -1,9 +1,6 @@
 import { useMemo } from 'react';
 
 import { ShoppingCartItem } from '../ShoppingCartItem/ShoppingCartItem';
-import { CartItem } from '~/app-state/cart';
-import { Body } from '~/components/typography/Body';
-import { toEuro } from '~/helpers';
 
 import {
   OrderSummaryContainer,
@@ -12,38 +9,35 @@ import {
   StyledHeading,
 } from './OrderSummary.styles';
 
+import { CartItem } from '~/app-state/cart';
+import { Body } from '~/components/typography/Body';
+import { toEuro } from '~/helpers';
+
 type Props = {
   cartItems: CartItem[];
 };
 
 export const OrderSummary = ({ cartItems }: Props) => {
   const totalPrice = useMemo(
-    () =>
-      cartItems
-        .map((item) => item.quantity * item.price)
-        .reduce((acc, next) => acc + next, 0),
+    () => cartItems.map((item) => item.quantity * item.price).reduce((acc, next) => acc + next, 0),
     [cartItems]
   );
   return (
-    <>
-      <OrderSummaryContainer>
-        <StyledHeading level={2} withMargin>
-          Your order
-        </StyledHeading>
-        <CartItemsContainer>
-          {cartItems.length ? (
-            cartItems.map((item) => (
-              <ShoppingCartItem key={item.id} item={item} />
-            ))
-          ) : (
-            <Body>Your cart is empty.</Body>
-          )}
-        </CartItemsContainer>
-        <BottomContainer>
-          <Body>Total</Body>
-          <StyledHeading level={2}>{toEuro(totalPrice)}</StyledHeading>
-        </BottomContainer>
-      </OrderSummaryContainer>
-    </>
+    <OrderSummaryContainer>
+      <StyledHeading level={2} withMargin>
+        Your order
+      </StyledHeading>
+      <CartItemsContainer>
+        {cartItems.length ? (
+          cartItems.map((item) => <ShoppingCartItem key={item.id} item={item} />)
+        ) : (
+          <Body>Your cart is empty.</Body>
+        )}
+      </CartItemsContainer>
+      <BottomContainer>
+        <Body>Total</Body>
+        <StyledHeading level={2}>{toEuro(totalPrice)}</StyledHeading>
+      </BottomContainer>
+    </OrderSummaryContainer>
   );
 };

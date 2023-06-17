@@ -1,14 +1,14 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Review } from "./Review";
+import { Review } from './Review';
 
 const meta: Meta<typeof Review> = {
-  title: "Components/Review",
+  title: 'Components/Review',
   component: Review,
   argTypes: {
     rating: {
       control: {
-        type: "range",
+        type: 'range',
         min: 0,
         max: 5,
         step: 1,

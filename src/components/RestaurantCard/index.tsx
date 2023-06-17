@@ -1,1 +1,1 @@
-export { RestaurantCard, RestaurantCardSkeleton } from "./RestaurantCard";
+export { RestaurantCard, RestaurantCardSkeleton } from './RestaurantCard';

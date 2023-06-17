@@ -1,8 +1,8 @@
-import { DefaultTheme } from "styled-components";
+import { DefaultTheme } from 'styled-components';
 
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme {
-    name: "light" | "dark";
+    name: 'light' | 'dark';
     fonts: {
       family: string;
     };
@@ -15,62 +15,62 @@ declare module "styled-components" {
 }
 
 const baseColors = {
-  white: "#FFFFFF ",
-  black: "#202020",
-  otherBlack: "#2C2C2C ",
+  white: '#FFFFFF ',
+  black: '#202020',
+  otherBlack: '#2C2C2C ',
   grey: {
-    base: "#909090",
-    light1: "#A6A6A6",
-    light2: "#BCBCBC",
-    light3: "#D2D2D2",
-    light4: "#E9E9E9",
-    light5: "#F5F6F7",
-    light6: "#F9F9F9",
-    dark1: "#797979",
-    dark2: "#636363",
-    dark3: "#4D4D4D",
-    dark4: "#363636",
-    dark5: "#2C2C2C",
-    dark6: "#202020",
+    base: '#909090',
+    light1: '#A6A6A6',
+    light2: '#BCBCBC',
+    light3: '#D2D2D2',
+    light4: '#E9E9E9',
+    light5: '#F5F6F7',
+    light6: '#F9F9F9',
+    dark1: '#797979',
+    dark2: '#636363',
+    dark3: '#4D4D4D',
+    dark4: '#363636',
+    dark5: '#2C2C2C',
+    dark6: '#202020',
   },
   green: {
-    base: "#E5F8BC",
-    light1: "#E8F9C3",
-    light2: "#EAF9C9",
-    light3: "#EDFAD0",
-    light4: "#EFFBD7",
-    light5: "#F2FCDE",
-    dark1: "#CEDFA9",
-    dark2: "#B7C696",
-    dark3: "#A0AE84",
-    dark4: "#899571",
-    dark5: "#737C5E",
+    base: '#E5F8BC',
+    light1: '#E8F9C3',
+    light2: '#EAF9C9',
+    light3: '#EDFAD0',
+    light4: '#EFFBD7',
+    light5: '#F2FCDE',
+    dark1: '#CEDFA9',
+    dark2: '#B7C696',
+    dark3: '#A0AE84',
+    dark4: '#899571',
+    dark5: '#737C5E',
   },
   blue: {
-    base: "#B1DDE4",
-    light1: "#B9E0E7",
-    light2: "#C1E4E9",
-    light3: "#C8E7EC",
-    light4: "#D0EBEF",
-    light5: "#D8EEF2",
-    dark1: "#9FC7CD",
-    dark2: "#8EB1B6",
-    dark3: "#7C9BA0",
-    dark4: "#6A8589",
-    dark5: "#596f72",
+    base: '#B1DDE4',
+    light1: '#B9E0E7',
+    light2: '#C1E4E9',
+    light3: '#C8E7EC',
+    light4: '#D0EBEF',
+    light5: '#D8EEF2',
+    dark1: '#9FC7CD',
+    dark2: '#8EB1B6',
+    dark3: '#7C9BA0',
+    dark4: '#6A8589',
+    dark5: '#596f72',
   },
 };
 
 const spaceUnit = 1;
 
 const borderRadius = {
-  xs: "4px",
-  s: "8px",
-  m: "16px",
-  l: "24px",
-  xl: "32px",
-  xxl: "40px",
-  round: "50%",
+  xs: '4px',
+  s: '8px',
+  m: '16px',
+  l: '24px',
+  xl: '32px',
+  xxl: '40px',
+  round: '50%',
 };
 
 const spacing = {
@@ -84,27 +84,27 @@ const spacing = {
 };
 
 const boxShadow = {
-  card: "0px 14px 26px 0px rgba(0, 0, 0, 0.08)",
-  inner: "inset 0 3px 0 0 rgba(0, 0, 0, 0.05)",
+  card: '0px 14px 26px 0px rgba(0, 0, 0, 0.08)',
+  inner: 'inset 0 3px 0 0 rgba(0, 0, 0, 0.05)',
   outerBorder: `0 0 0 1px ${baseColors.blue.dark2}, 0 0 0 4px ${baseColors.blue.light5}`,
 };
 
 const typography = {
   fontSize: {
-    body: "1.125rem",
-    bodyS: "1rem",
-    bodyXS: "0.9rem",
-    bodyXXS: "0.72rem",
-    heading1: "2.74rem",
-    heading2: "2.19rem",
-    heading3: "1.75rem",
-    heading4: "1.4rem",
+    body: '1.125rem',
+    bodyS: '1rem',
+    bodyXS: '0.9rem',
+    bodyXXS: '0.72rem',
+    heading1: '2.74rem',
+    heading2: '2.19rem',
+    heading3: '1.75rem',
+    heading4: '1.4rem',
   },
   fontWeight: {
-    black: "900",
-    bold: "700",
-    medium: "500",
-    regular: "400",
+    black: '900',
+    bold: '700',
+    medium: '500',
+    regular: '400',
   },
 };
 
@@ -114,7 +114,7 @@ const color = {
   badgeText: baseColors.grey.dark2,
   cartButtonText: baseColors.grey.base,
   bannerBackground: baseColors.blue.base,
-  buttonClear: "transparent",
+  buttonClear: 'transparent',
   buttonClearHover: baseColors.grey.light5,
   buttonPrimary: baseColors.grey.dark6,
   buttonPrimaryHover: baseColors.grey.dark5, // recheck
@@ -159,9 +159,9 @@ export const lightTheme: DefaultTheme = {
   boxShadow,
   color,
   fonts: {
-    family: "NunitoSans, sans-serif",
+    family: 'NunitoSans, sans-serif',
   },
-  name: "light",
+  name: 'light',
   spacing,
   typography,
 };
@@ -211,5 +211,5 @@ export const darkTheme: DefaultTheme = {
     skeletonHighlight: baseColors.grey.dark2,
     topBannerBackground: baseColors.grey.dark5,
   },
-  name: "dark",
+  name: 'dark',
 };

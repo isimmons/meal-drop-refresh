@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 
 import { getChildData, cloneDeepLimited } from './utils';
 
@@ -8,9 +8,7 @@ const useForm = (initialValues) => {
   return [
     formValues,
     ({ target }) => {
-      const {
-        name, value, checked, type,
-      } = target;
+      const { name, value, checked, type } = target;
       const isCheckbox = type === 'checkbox';
 
       setFormValues((data) => {

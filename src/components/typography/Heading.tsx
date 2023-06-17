@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-
 import type { ComponentProps, ElementType } from 'react';
 
 type FontSize = 'heading1' | 'heading2' | 'heading3' | 'heading4';

@@ -46,12 +46,7 @@ type Props = {
   onChange?: (data: string) => void;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export const Input = ({
-  label = '',
-  type = 'text',
-  id,
-  ...otherProps
-}: Props) => (
+export const Input = ({ label = '', type = 'text', id, ...otherProps }: Props) => (
   <Container>
     <input id={id} aria-label={label} type={type} {...otherProps} />
     {label && (

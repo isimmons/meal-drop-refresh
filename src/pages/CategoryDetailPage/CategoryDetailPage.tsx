@@ -3,10 +3,7 @@ import styled from 'styled-components';
 
 import { useFetchRestaurantsByCategory } from '~/api/hooks';
 import { PageTemplate } from '~/templates/PageTemplate';
-import {
-  RestaurantCard,
-  RestaurantCardSkeleton,
-} from '~/components/RestaurantCard';
+import { RestaurantCard, RestaurantCardSkeleton } from '~/components/RestaurantCard';
 import { TopBanner } from '~/components/TopBanner';
 import { categories } from '~/stub/categories';
 import sushi from '~/assets/images/sushi.svg';
@@ -40,10 +37,7 @@ export const CategoryDetailPage = () => {
 
   return (
     <PageTemplate>
-      <TopBanner
-        title={category?.title || 'Oops!'}
-        photoUrl={category?.photoUrl}
-      />
+      <TopBanner title={category?.title || 'Oops!'} photoUrl={category?.photoUrl} />
       <div className="container">
         <Breadcrumb>
           <p style={{ display: 'inline-block', textDecoration: 'underline' }}>
@@ -67,9 +61,7 @@ export const CategoryDetailPage = () => {
         )}
         <StyledContainer>
           {status === 'loading'
-            ? Array.from(Array(3)).map((_, index) => (
-                <RestaurantCardSkeleton key={index} />
-              ))
+            ? Array.from(Array(3)).map((_, index) => <RestaurantCardSkeleton key={index} />)
             : restaurants.map((restaurant: Restaurant, index: number) => (
                 <RestaurantCard
                   key={restaurant.name || index}

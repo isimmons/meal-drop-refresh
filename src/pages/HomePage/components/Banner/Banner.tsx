@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom'
-import styled, { css } from 'styled-components'
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
-import { Button } from '../../../../components/Button'
-import ladies from '../../../../assets/images/ladies.svg'
-import { breakpoints } from '../../../../styles/breakpoints'
-import { Heading } from '../../../../components/typography'
+import { Button } from '~/components/Button';
+import ladies from '~/assets/images/ladies.svg';
+import { breakpoints } from '~/styles/breakpoints';
+import { Heading } from '~/components/typography';
 
 const Container = styled.div(
   ({ theme: { color } }) => css`
@@ -19,7 +19,7 @@ const Container = styled.div(
       height: 566px;
     }
   `
-)
+);
 
 const ContentContainer = styled.div`
   text-align: center;
@@ -27,7 +27,7 @@ const ContentContainer = styled.div`
   align-items: center;
   flex-direction: column;
   z-index: 1;
-`
+`;
 
 const Image = styled.div<{ src: string }>(
   ({ src }) => css`
@@ -43,7 +43,7 @@ const Image = styled.div<{ src: string }>(
       background-size: 1000px;
     }
   `
-)
+);
 
 const StyledHeading = styled(Heading)(
   ({ theme: { color } }) => `
@@ -54,7 +54,7 @@ const StyledHeading = styled(Heading)(
     font-weight: 900;
   }
 `
-)
+);
 
 export const Banner = () => (
   <Container>
@@ -68,4 +68,4 @@ export const Banner = () => (
     </ContentContainer>
     <Image src={ladies} />
   </Container>
-)
+);

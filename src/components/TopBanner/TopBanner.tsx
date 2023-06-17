@@ -15,9 +15,7 @@ const Container = styled.div<{ src?: string }>(
     position: relative;
     justify-content: center;
     align-items: center;
-    background: ${src
-      ? `url(${src}) no-repeat 50%`
-      : color.topBannerBackground};
+    background: ${src ? `url(${src}) no-repeat 50%` : color.topBannerBackground};
     background-position: center;
     background-size: cover;
     height: 240px;

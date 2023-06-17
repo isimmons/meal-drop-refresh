@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-
 import type { ComponentProps, ReactNode } from 'react';
 
 type FontSize = 'body' | 'bodyS' | 'bodyXS' | 'bodyXXS';

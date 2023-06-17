@@ -1,9 +1,5 @@
-import * as React from 'react';
+import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-
-import { useKey, useLockBodyScroll } from '~/hooks';
-import { Button } from '~/components/Button';
-import { Heading } from '~/components/typography';
 
 import {
   SidebarContainer,
@@ -13,6 +9,10 @@ import {
   Backdrop,
 } from './Sidebar.styles';
 
+import { useKey, useLockBodyScroll } from '~/hooks';
+import { Button } from '~/components/Button';
+import { Heading } from '~/components/typography';
+
 type Props = {
   isOpen: boolean;
   title: string;
@@ -21,17 +21,11 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export const Sidebar = ({
-  children,
-  footer,
-  isOpen,
-  title,
-  onClose,
-}: Props) => {
+export const Sidebar = ({ children, footer, isOpen, title, onClose }: Props) => {
   useKey('escape', onClose);
   useLockBodyScroll(isOpen);
-  const contentRef = React.useRef(null);
-  const backdropRef = React.useRef(null);
+  const contentRef = useRef(null);
+  const backdropRef = useRef(null);
 
   return (
     <>
@@ -55,12 +49,8 @@ export const Sidebar = ({
               iconSize={16}
             />
           </TopBar>
-          <SidebarContent data-testid="sidebar-content">
-            {children}
-          </SidebarContent>
-          {footer && (
-            <SidebarFooter data-testid="sidebar-footer">{footer}</SidebarFooter>
-          )}
+          <SidebarContent data-testid="sidebar-content">{children}</SidebarContent>
+          {footer && <SidebarFooter data-testid="sidebar-footer">{footer}</SidebarFooter>}
         </SidebarContainer>
       </CSSTransition>
 

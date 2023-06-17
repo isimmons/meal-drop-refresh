@@ -1,6 +1,6 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
-import { AppDispatch, RootState } from './store'
+import { AppDispatch, RootState } from './store';
 
 /**
  * The reason we expose our own dispatch and selector
@@ -8,5 +8,5 @@ import { AppDispatch, RootState } from './store'
  * automatically updated as we add more slices to the application.
  */
 
-export const useAppDispatch = () => useDispatch<AppDispatch>()
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

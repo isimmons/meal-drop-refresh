@@ -84,11 +84,7 @@ export const Footer = () => {
                 style={{ width: '120px', marginBottom: '0.5rem' }}
                 src={appStoreBanner}
               />
-              <img
-                alt="google play link"
-                style={{ width: '120px' }}
-                src={googlePlayBanner}
-              />
+              <img alt="google play link" style={{ width: '120px' }} src={googlePlayBanner} />
             </div>
           </FooterCard>
         </FooterTop>

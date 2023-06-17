@@ -31,13 +31,7 @@ type Props = {
   onButtonClick: () => void;
 };
 
-export const ErrorBlock = ({
-  title,
-  image,
-  body,
-  buttonText,
-  onButtonClick,
-}: Props) => (
+export const ErrorBlock = ({ title, image, body, buttonText, onButtonClick }: Props) => (
   <ErrorContainer>
     <Heading level={2}>{title}</Heading>
     <ImageContainer>{image}</ImageContainer>

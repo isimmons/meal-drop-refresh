@@ -1,16 +1,12 @@
-import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import Carousel from "react-multi-carousel";
+import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import Carousel from 'react-multi-carousel';
 
-import { useFetchRestaurants } from "~/api/hooks";
-import { IconButton } from "~/components/IconButton";
-import { PageSection } from "~/components/PageSection";
-import {
-  RestaurantCard,
-  RestaurantCardSkeleton,
-} from "~/components/RestaurantCard";
-
-import type { Restaurant } from "~/@types";
+import { useFetchRestaurants } from '~/api/hooks';
+import { IconButton } from '~/components/IconButton';
+import { PageSection } from '~/components/PageSection';
+import { RestaurantCard, RestaurantCardSkeleton } from '~/components/RestaurantCard';
+import type { Restaurant } from '~/@types';
 
 const PreviousButton = styled(IconButton)`
   position: absolute;
@@ -62,13 +58,11 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
           },
         }}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
+        removeArrowOnDeviceType={['tablet', 'mobile']}
         itemClass="carousel-item"
       >
-        {status === "loading"
-          ? Array.from(Array(3)).map((_, index) => (
-              <RestaurantCardSkeleton key={index} />
-            ))
+        {status === 'loading'
+          ? Array.from(Array(3)).map((_, index) => <RestaurantCardSkeleton key={index} />)
           : restaurants.map((restaurant: Restaurant, index: number) => (
               <RestaurantCard
                 key={restaurant.name + index}

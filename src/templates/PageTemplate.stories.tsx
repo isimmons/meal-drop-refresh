@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
+import { ReactNode } from 'react';
 
-import { PageTemplate } from "./PageTemplate";
-import { ReactNode } from "react";
+import { PageTemplate } from './PageTemplate';
 
-import { cartItems } from "~/stub/cart-items";
+import { cartItems } from '~/stub/cart-items';
 
 const meta: Meta<typeof PageTemplate> = {
-  title: "Templates/PageTemplate",
+  title: 'Templates/PageTemplate',
   component: PageTemplate,
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 };
 
@@ -21,9 +21,7 @@ type DummyProps = {
   children: ReactNode | ReactNode[];
 };
 
-const DummyComponent = ({ children }: DummyProps) => (
-  <div style={{ padding: 60 }}>{children}</div>
-);
+const DummyComponent = ({ children }: DummyProps) => <div style={{ padding: 60 }}>{children}</div>;
 
 export const Default: Story = {
   args: {
@@ -45,7 +43,7 @@ export const WithItemsInTheCart: Story = {
 
 export const Basic: Story = {
   args: {
-    type: "basic",
+    type: 'basic',
     children: (
       <DummyComponent>
         Simple template with scrollable header and no navigation amd no footer
@@ -56,11 +54,10 @@ export const Basic: Story = {
 
 export const StickyHeader: Story = {
   args: {
-    type: "sticky-header",
+    type: 'sticky-header',
     children: (
       <DummyComponent>
-        Template with sticky header on desktop and navigation items. Try
-        scrolling!
+        Template with sticky header on desktop and navigation items. Try scrolling!
       </DummyComponent>
     ),
   },

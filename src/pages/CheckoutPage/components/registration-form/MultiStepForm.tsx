@@ -1,9 +1,10 @@
-import { Step, useForm, useStep } from '~/hooks/rhh';
 import styled, { css } from 'styled-components';
 
 import { ContactDetails } from './ContactDetails';
 import { DeliveryDetails } from './DeliveryDetails';
 import { StepIndicator } from './StepIndicator';
+
+import { Step, useForm, useStep } from '~/hooks/rhh';
 
 const steps: Step[] = [{ id: 'Contact details' }, { id: 'Delivery details' }];
 

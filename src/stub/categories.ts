@@ -45,4 +45,4 @@ export const categories = [
   //   photoUrl:
   //     'https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=20',
   // },
-]
+];
