@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
-import useDarkMode from '@fisch0920/use-dark-mode';
+import { useDarkMode } from 'usehooks-ts';
 
 import { useAppDispatch, useAppSelector } from '~/app-state';
 import {
@@ -100,14 +100,14 @@ export const CartTotal = styled(Body)(
 );
 
 const ThemeToggle = () => {
-  const darkMode = useDarkMode(false);
+  const { isDarkMode, toggle: toggleDarkMode } = useDarkMode(false);
   return (
     <Button
       round
       clear
-      aria-label={`turn on ${darkMode.value ? 'light' : 'dark'} mode`}
-      icon={darkMode.value ? 'moon' : 'sun'}
-      onClick={darkMode.toggle}
+      aria-label={`turn on ${isDarkMode ? 'light' : 'dark'} mode`}
+      icon={isDarkMode ? 'moon' : 'sun'}
+      onClick={toggleDarkMode}
     />
   );
 };
