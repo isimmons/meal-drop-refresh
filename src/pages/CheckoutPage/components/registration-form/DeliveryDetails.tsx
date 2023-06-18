@@ -1,4 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+import type { UseFormRegister, FieldErrors, UseFormHandleSubmit } from 'react-hook-form';
+
+import type { Inputs } from './MultiStepForm';
 
 import { saveOrderAction } from '~/app-state/order';
 import { useAppDispatch, useAppSelector } from '~/app-state';
@@ -7,57 +10,57 @@ import { Button } from '~/components/Button';
 import { Input } from '~/components/forms/Input';
 
 type Props = {
-  setForm: () => void;
-  formData: {
-    address: string;
-    city: string;
-    postcode: string;
-  };
-  navigation: any;
+  register: UseFormRegister<Inputs>;
+  errors: FieldErrors<Inputs>;
+  isValid: boolean;
+  handleSubmit: UseFormHandleSubmit<Inputs>;
+  goToPrevStep: any;
 };
 
-export const DeliveryDetails = ({ setForm, formData, navigation }: Props) => {
+export const DeliveryDetails = ({
+  register,
+  errors,
+  isValid,
+  handleSubmit,
+  goToPrevStep,
+}: Props) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector(selectCartItems);
 
-  const { address, city, postcode } = formData;
-
-  const { previous } = navigation;
-
-  const onCompleteOrder = () => {
+  const onCompleteOrder = (data: Inputs) => {
+    console.log(data);
     dispatch(saveOrderAction(cartItems));
     dispatch(clearCartAction());
     navigate('/success');
   };
-
+  console.log(errors);
   return (
     <div className="form">
       <Input
         label="Streetname and housenumber"
         placeholder="Some street, 13"
-        name="address"
-        value={address}
-        onChange={setForm}
+        {...register('address')}
       />
       <Input
         label="Postcode"
         placeholder="AAAAXX"
-        name="postcode"
-        value={postcode}
-        onChange={setForm}
+        {...register('postcode', { required: 'Postcode is required...' })}
       />
-      <Input label="City" placeholder="Amsterdam" name="city" value={city} onChange={setForm} />
+      <Input label="City" placeholder="Amsterdam" {...register('city')} />
       <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
         }}
       >
-        <Button clear onClick={previous}>
+        <Button clear onClick={goToPrevStep}>
           Previous
         </Button>
-        <Button onClick={onCompleteOrder}>Complete order</Button>
+        {errors.postcode && <p style={{ color: 'red' }}>{errors.postcode.message}</p>}
+        <Button onClick={handleSubmit(onCompleteOrder)} disabled={!isValid}>
+          Complete order
+        </Button>
       </div>
     </div>
   );

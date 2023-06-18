@@ -8,9 +8,13 @@ A lot of things broke so I learned from reading the new docs at [Storybook](http
 
 ## Some things that still need to be fixed
 
-react-hooks-helper last published 4 years ago and has a dependency requirement of react@16.8.0-alpha.0. To get things working, I copied the code from the repo and the types from definitely typed into my own hooks/rhh directory and imported from there.
+Update: Replaced useForm from react-hooks-helper with react-hooks-form
 
 Update: Replaced the useDarkMode old unmaintained package with useDarkMode from usehooks-ts
+
+Next up: look into replacing useBodyScrollLock with useLockedBody from usehook-ts
+
+See if there is anything in usehook-ts to replace useKeyboard
 
 ## Usage
 

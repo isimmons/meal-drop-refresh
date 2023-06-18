@@ -1,21 +1,25 @@
 import styled, { css } from 'styled-components';
+import { useStep } from 'usehooks-ts';
+import { useForm } from 'react-hook-form';
 
 import { ContactDetails } from './ContactDetails';
 import { DeliveryDetails } from './DeliveryDetails';
 import { StepIndicator } from './StepIndicator';
 
-import { Step, useForm, useStep } from '~/hooks/rhh';
+type Step = {
+  id: string;
+};
 
 const steps: Step[] = [{ id: 'Contact details' }, { id: 'Delivery details' }];
 
-const defaultData = {
-  firstName: '',
-  lastName: '',
-  address: '',
-  city: '',
-  postcode: '',
-  email: '',
-  phone: '',
+export type Inputs = {
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  postcode: string;
+  email: string;
+  phone: string;
 };
 
 const getCurrentStep = (step: string, props: any) => {
@@ -41,21 +45,29 @@ const FormContainer = styled.div(
 );
 
 export const MultiStepForm = () => {
-  const [formData, setForm] = useForm(defaultData);
-  const { step, navigation, index } = useStep({ initialStep: 0, steps });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<Inputs>();
 
-  const currentStepId = (step as Step).id;
-  const props = { formData, setForm, navigation };
-  const currentIndex = index + 1;
+  const [currentStep, helpers] = useStep(2);
+  const { goToNextStep, goToPrevStep } = helpers;
+
+  const currentStepId = () => {
+    return currentStep === 1 ? steps[0].id : steps[1].id;
+  };
+
+  const props = { register, handleSubmit, errors, isValid, goToNextStep, goToPrevStep };
 
   return (
     <FormContainer>
       <StepIndicator
-        title={currentStepId}
-        currentStep={currentIndex}
+        title={currentStepId()}
+        currentStep={currentStep}
         amountOfSteps={steps.length}
       />
-      {getCurrentStep(currentStepId, props)}
+      {getCurrentStep(currentStepId(), props)}
     </FormContainer>
   );
 };
