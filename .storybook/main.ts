@@ -7,6 +7,7 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
+    'storybook-addon-react-router-v6',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     'storybook-addon-designs',

@@ -23,9 +23,9 @@ const meta: Meta<typeof RestaurantDetailPage> = {
   decorators: [insertPortalDiv],
   parameters: {
     layout: 'fullscreen',
-    deepLink: {
-      path: '/restaurants/:id',
-      route: '/restaurants/1',
+    reactRouter: {
+      routePath: '/restaurants/:id',
+      routeParams: { id: '1' },
     },
   },
 };
