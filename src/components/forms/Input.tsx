@@ -1,4 +1,5 @@
-import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import type { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
 import { Body } from '../typography/Body';
@@ -43,16 +44,17 @@ const Container = styled.div(
 type Props = {
   label?: string;
   value?: string;
-  onChange?: (data: string) => void;
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export const Input = ({ label = '', type = 'text', id, ...otherProps }: Props) => (
-  <Container>
-    <input id={id} aria-label={label} type={type} {...otherProps} />
-    {label && (
-      <Body type="label" htmlFor={id}>
-        {label}
-      </Body>
-    )}
-  </Container>
+export const Input = forwardRef<HTMLInputElement, Props>(
+  ({ label = '', type = 'text', id, ...otherProps }: Props, ref) => (
+    <Container>
+      <input id={id} aria-label={label} type={type} {...otherProps} ref={ref} />
+      {label && (
+        <Body type="label" htmlFor={id}>
+          {label}
+        </Body>
+      )}
+    </Container>
+  )
 );

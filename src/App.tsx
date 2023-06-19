@@ -1,16 +1,16 @@
-import useDarkMode from '@fisch0920/use-dark-mode';
+import { useDarkMode } from 'usehooks-ts';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider as StoreProvider } from 'react-redux';
 
 import { store } from './app-state';
-import { AppRoutes } from './Routes';
+import { AppRoutes } from './Routes/AppRoutes';
 import { lightTheme, darkTheme } from './styles/theme';
 import { GlobalStyle } from './styles/GlobalStyle';
 
 const App = () => {
-  const { value } = useDarkMode(false);
-  const theme = value ? darkTheme : lightTheme;
+  const { isDarkMode } = useDarkMode(false);
+  const theme = isDarkMode ? darkTheme : lightTheme;
 
   return (
     <Router>

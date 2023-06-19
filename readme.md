@@ -8,13 +8,13 @@ A lot of things broke so I learned from reading the new docs at [Storybook](http
 
 ## Some things that still need to be fixed
 
-react-hooks-helper last published 4 years ago and has a dependency requirement of react@16.8.0-alpha.0. To get things working, I copied the code from the repo and the types from definitely typed into my own hooks/rhh directory and imported from there.
+Update: Replaced useForm from react-hooks-helper with react-hooks-form
 
-use-dark-mode didn't work either and I can't remember why but @fisch0920/use-dark-mode works as a replacement. The only problem it has is that it uses use-persisted-state (also old and by the developer of use-dark-mode) which has this peer dependency of "react": "^16.8.0 || ^17.0.0 || ^18.0.0" which causes irritating warnings in the terminal every time you do anything with npm in the project. But it works :-)
+Update: Replaced the useDarkMode old unmaintained package with useDarkMode from usehooks-ts
 
-Looking at what these packages do and how they work, I think it shouldn't be too hard to just write the code to do the job and drop these off from the dependency list. All we are doing with them is storing the user preference for dark/light mode in localstorage and making it available to the react app and storybook.
+Next up: look into replacing useBodyScrollLock with useLockedBody from usehook-ts
 
-So getting rid of these two and their peer dependencies is something I'm going to work on.
+See if there is anything in usehook-ts to replace useKeyboard
 
 ## Usage
 

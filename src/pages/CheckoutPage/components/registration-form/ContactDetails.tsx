@@ -1,4 +1,7 @@
 import styled, { css } from 'styled-components';
+import type { UseFormRegister, FieldErrors } from 'react-hook-form';
+
+import type { Inputs } from './MultiStepForm';
 
 import { Button } from '~/components/Button';
 import { Input } from '~/components/forms/Input';
@@ -10,48 +13,28 @@ const DisclaimerText = styled(Body)(
   `
 );
 
-export const ContactDetails = ({ setForm, formData, navigation }: any) => {
-  const { firstName, lastName, email, phone } = formData;
+type Props = {
+  register: UseFormRegister<Inputs>;
+  errors: FieldErrors<Inputs>;
+  isValid: boolean;
+  goToNextStep: any;
+};
 
-  const { next } = navigation;
-
+export const ContactDetails = ({ register, errors, isValid, goToNextStep }: Props) => {
+  console.log(errors);
   return (
     <div className="form">
-      <Input
-        label="First name"
-        placeholder="John"
-        name="firstName"
-        value={firstName}
-        onChange={setForm}
-      />
-      <Input
-        label="Last name"
-        placeholder="Doe"
-        name="lastName"
-        value={lastName}
-        onChange={setForm}
-      />
-      <Input
-        label="Email"
-        name="email"
-        type="email"
-        placeholder="email address"
-        value={email}
-        onChange={setForm}
-      />
-      <Input
-        label="Phone number"
-        placeholder="phone number"
-        name="phone"
-        type="tel"
-        value={phone}
-        onChange={setForm}
-      />
+      <Input label="First name" placeholder="John" {...register('firstName')} />
+      <Input label="Last name" placeholder="Doe" {...register('lastName')} />
+      <Input label="Email" type="email" placeholder="email address" {...register('email')} />
+      <Input label="Phone number" placeholder="phone number" type="tel" {...register('phone')} />
       <DisclaimerText size="XXS" type="span">
         We’ll only use your phone to call you about your order
       </DisclaimerText>
       <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-        <Button onClick={next}>Next</Button>
+        <Button onClick={goToNextStep} disabled={!isValid}>
+          Next
+        </Button>
       </div>
     </div>
   );
