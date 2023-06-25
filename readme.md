@@ -12,6 +12,9 @@ Update: Replaced useForm from react-hooks-helper with react-hooks-form
 
 Update: Replaced the useDarkMode old unmaintained package with useDarkMode from usehooks-ts
 
+Additional stories:
+Added Success page and interactive navigation from form submition of the Checkout page to the Success page to replicate the application interaction.
+
 Next up: look into replacing useBodyScrollLock with useLockedBody from usehook-ts
 
 See if there is anything in usehook-ts to replace useKeyboard

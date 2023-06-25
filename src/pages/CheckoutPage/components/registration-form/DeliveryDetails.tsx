@@ -58,7 +58,7 @@ export const DeliveryDetails = ({
           Previous
         </Button>
         {errors.postcode && <p style={{ color: 'red' }}>{errors.postcode.message}</p>}
-        <Button onClick={handleSubmit(onCompleteOrder)} disabled={!isValid}>
+        <Button id="checkout-submit" onClick={handleSubmit(onCompleteOrder)} disabled={!isValid}>
           Complete order
         </Button>
       </div>
